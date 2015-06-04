@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>demo</title>
+		<link href="image/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+		<link rel="stylesheet" type="text/css" href="css/Normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/picture-style.css" />
+		<link rel="stylesheet" type="text/css" href="css/dtree.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/kewen.css" />
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript" src="js/dtree.js"></script>
+		<script type="text/javascript" src="js/picture.js"></script>
+		<script type="text/javascript" src="js/zuozhe.js"></script>
+		<script type="text/javascript" src="js/shengziquanxi.js"></script>
+		<script type="text/javascript" src="js/xincijieshi.js"></script>
+		<script type="text/javascript" src="js/ciyu.js"></script>
+		<script type="text/javascript" src="js/fanyici.js"></script>
+		<script type="text/javascript" src="js/ciyujijing.js"></script>
+		<script type="text/javascript" src="js/jingyicibianxi.js"></script>
+		<script type="text/javascript" src="js/tingxieleyuan.js"></script>
+		<script type="text/javascript" src="js/meiduzhidao.js"></script>
+		<script type="text/javascript" src="js/kewendaoxue.js"></script>
+		<script type="text/javascript" src="js/duoyingzi.js"></script>
+		<script type="text/javascript" src="js/kewen-new.js"></script>
+		<script type="text/javascript" src="js/kewenjiegou.js"></script>
+		<script type="text/javascript" src="js/hudongtiwen.js"></script>
+		<script type="text/javascript" src="js/xitizhidao.js"></script>
+		<script type="text/javascript" src="js/xueximubiao.js"></script>
+			<script type="text/javascript" src="js/ketijiexi.js"></script>
+			<script type="text/javascript" src="js/nav.js"></script>
+		</script>
+		<style type="text/css">
+			.chinese {
+				text-indent: 2em;
+				line-height: 30px;
+				font-family: "楷体";
+				font-size: 16px;
+				margin-top: 30px;
+				width: 700px;
+			}
+			.chinese-bottom {
+				text-indent: 2em;
+				line-height: 0px;
+				font-family: "楷体";
+				font-size: 16px;
+				margin-top: 30px;
+				width: 700px;
+			}
+			.chinese-bottom1 {
+				text-indent: 2em;
+				line-height: 20px;
+				font-family: "楷体";
+				font-size: 16px;
+				margin-top: 30px;
+				width: 700px;
+			}
+			.chinese-1 {
+				text-indent: 2em;
+				line-height: 10px;
+				font-size: 14px;
+			}
+			.chinese-1 label {
+				color: red;
+			}
+			#showDivss {
+				position: fixed;
+				display: none;
+				width: 800px;
+				height: 600px;
+				top: 50%;
+				left: 50%;
+				margin-left: -306px;
+				margin-top: -300px;
+				background-color: #FFFFFF;
+				border: 6px solid #045a36;
+				z-index: 10000000000000000000;
+			}
+			#showDivBtn {
+				position: fixed;
+				width: 100px;
+				height: 36px;
+				top: 50%;
+				left: 50%;
+				margin-left: 400px;
+				margin-top: -340px;
+				background-color: #f05183;
+				z-index: 100000000000000000000000;
+				text-align: center;
+				font-size: 20px;
+				color: #FFFFFF;
+				font-weight: bold;
+				line-height: 36px;
+				display: none;
+				cursor: pointer;
+			}
+			#showDiv {
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				bottom: 0px;
+				display: none;
+				filter: alpha(opacity=100);
+				/* IE */
+				
+				-moz-opacity: 0.75;
+				/* Moz + FF */
+				
+				opacity: 0.55;
+				background-color: black;
+				z-index: 99999999;
+				cursor: pointer;
+			}
+			.word {
+				float: left;
+				width: 360px;
+				min-height: 100px;
+				background-color: red;
+			}
+			.word span {
+				text-align: center;
+				display: block;
+				line-height: 36px;
+			}
+			* {
+				outline: none;
+			}
+			.jingyicibianxi {
+				/* display: none; */
+				color:#EEEEEE;
+			}
+		</style>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$(document).ready(function() {
+					$("#hide").click(function() {
+						$("#nav").css("margin-left", "-30%");
+						$("#contents").css("width", "100%");
+						$("#contents").css("margin-left", "-30%");
+						$("#show").show();
+						$("#hide").hide();
+						$("#content").css("width", "70%");
+						$("#content").css("margin-left", "-35%");
+						$("html").css("background-color", "#EEEEEE");
+					});
+					$("#show").click(function() {
+						$("#nav").css("margin-left", "0px");
+						$("#contents").css("width", "70%");
+						$("#contents").css("margin-left", "0px");
+						$("#show").hide();
+						$("#hide").show();
+						$("#content").css("width", "100%");
+						$("#content").css("margin-left", "-50%");
+					});
+				});
+				$("#showDiv").click(function() {
+					$("#showDiv").hide();
+					$("#showDivss").hide();
+					$("#showDivBtn").hide();
+				});
+				$("#showDivBtn").click(function() {
+					$("#showDiv").hide();
+					$("#showDivss").hide();
+					$("#showDivBtn").hide();
+				});
+				var color = "";
+				$("button[class!='noHover']").hover(function() {
+					color = $(this).css("background-color");
+					$(this).css("background-color", "#efc851");
+				}, function() {
+					$(this).css("background-color", color);
+				});
+			});
+
+			function showBtn(id) {
+				//$('param movie').attr("value", "swf/" + id + '.swf');
+				$("object").attr("data", id);
+				$("#showDiv").show();
+				$("#showDivss").show();
+				$("#showDivBtn").show();
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="showDivBtn">关闭窗口</div>
+		<div id="showDiv"></div>
+		<div id="showDivss">
+			<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="800" height="600" id="allgames" align="middle">
+				<param name="movie" value="swf/font-1.swf" />
+				<param name="quality" value="high" />
+				<param name="bgcolor" value="#ffffff" />
+				<param name="play" value="true" />
+				<param name="loop" value="true" />
+				<param name="wmode" value="window" />
+				<param name="scale" value="showall" />
+				<param name="menu" value="true" />
+				<param name="devicefont" value="false" />
+				<param name="salign" value="" />
+				<param name="allowScriptAccess" value="sameDomain" />
+				<!--[if !IE]>-->
+				<object type="application/x-shockwave-flash" data="swf/font-1.swf" width="800" height="600">
+					<param name="movie" value="swf/font-1.swf" />
+					<param name="quality" value="high" />
+					<param name="bgcolor" value="#ffffff" />
+					<param name="play" value="true" />
+					<param name="loop" value="true" />
+					<param name="wmode" value="window" />
+					<param name="scale" value="showall" />
+					<param name="menu" value="true" />
+					<param name="devicefont" value="false" />
+					<param name="salign" value="" />
+					<param name="allowScriptAccess" value="sameDomain" />
+					<!--<![endif]-->
+					<a href="https://www.adobe.com/go/getflash">
+						<img src="https://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="获得 Adobe Flash Player" />
+					</a>
+					<!--[if !IE]>-->
+				</object>
+				<!--<![endif]-->
+			</object>
+		</div>
+
+		<div id="nav">
+			<span id="hide">隐藏目录</span>
+			<div class="dtree">
+
+				<p><a href="javascript: d.openAll();">展开全部</a> | <a href="javascript: d.closeAll();">关闭全部</a>
+				</p>
+
+				<script type="text/javascript">
+					 
+					makeNav(); 
+				
+				</script>
+
+			</div>
+		</div>
+		<div id="contents">
+			<div id="content">
+				<div id="title"><span class="unit">第一课　窃读记</span>
+				</div>
+				<div id="page">
+
+					<div id="contentss">
+						<!--
+                        	作者：mr.ziqiang@qq.com
+                        	时间：2015-05-18
+                        	描述：<h2>第1课			窃读记</h2>
+                        -->
+						<br />
+					</div>
+					<span id="show">显示目录</span>
+					<a href="#content"><span id="top">返回顶部</span></a>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+				</div>
+				<script type="text/javascript" src="js/gen.js"></script>
+				<script>
+					gen.init(@data@);
+					gen.allHtml();
+					$("#contentss").append(gen.html);
+				</script>
+
+</html>
